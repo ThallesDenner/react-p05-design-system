@@ -27,8 +27,14 @@ jobs:
 
       - name: Deploy storybook
         working-directory: ./packages/docs
-        run: npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
+        run: touch storybook-static/.nojekyll && npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
         env:
           GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
 
-# Veja: https://github.com/storybook-eol/storybook-deployer
+# Observação: jekyll (usado por padrão pelo gh-pages) ignora arquivos começados por underline. Isto resulta no erro Failed to fetch dynamically imported module
+# quando tentamos acessar a página do Design System no GitHub Pages. Para resolver isso é só adicionar o arquivo .nojekyll na branch gh-pages ou adicionar o 
+# comando touch storybook-static/.nojekyll no run do Deploy storybook 
+
+# Links
+# https://github.com/storybook-eol/storybook-deployer
+# https://github.com/storybookjs/storybook/issues/20564
