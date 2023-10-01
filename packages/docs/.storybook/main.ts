@@ -25,5 +25,12 @@ const config: StorybookConfig = {
   docs: {
     autodocs: true, // o padrão é "tag", daí a documentação é ativada somente para os componentes que tem tags: ['autodocs'] na exportação padrão
   },
+  viteFinal: (config, { configType }) => {
+    if (configType === 'PRODUCTION') {
+      config.base = '/react-p05-design-system/'
+    }
+
+    return config
+  },
 };
 export default config;

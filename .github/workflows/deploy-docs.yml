@@ -1,0 +1,34 @@
+name: Deploy docs
+
+# O workflow será executado toda vez que houver um push na branch main
+on:
+  push:
+    branches:
+      - main
+
+# Trabalhos que serão executados
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # Instalação das dependências de produção no ambiente de CI (isto significa que não modifica o package-lock.json)
+      - run: npm ci
+
+      # Executa o script "build": "turbo run build", portanto, roda a build de todos os pacotes
+      - run: npm run build
+
+      - name: Deploy storybook
+        working-directory: ./packages/docs
+        run: npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
+        env:
+          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+
+# Veja: https://github.com/storybook-eol/storybook-deployer
