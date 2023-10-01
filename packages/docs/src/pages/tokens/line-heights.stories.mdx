@@ -1,0 +1,12 @@
+import { Meta, Unstyled } from "@storybook/blocks";
+import { TokensGrid } from '../../components/TokensGrid'
+import { lineHeights } from '@ignite-ui/tokens'
+
+<Meta title="Tokens/Line Heights" />
+
+# Line Heights
+
+{/* O bloco Unstyled é um bloco especial que desativa o estilo padrão do Storybook em documentos MDX onde quer que seja adicionado. */}
+<Unstyled>
+  <TokensGrid tokens={lineHeights} />
+</Unstyled>

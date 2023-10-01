@@ -1,0 +1,12 @@
+import { Meta, Unstyled } from "@storybook/blocks";
+import { TokensGrid } from '../../components/TokensGrid'
+import { fonts } from '@ignite-ui/tokens'
+
+<Meta title="Tokens/Font Families" />
+
+# Font Families
+
+{/* O bloco Unstyled é um bloco especial que desativa o estilo padrão do Storybook em documentos MDX onde quer que seja adicionado. */}
+<Unstyled>
+  <TokensGrid tokens={fonts} />
+</Unstyled>

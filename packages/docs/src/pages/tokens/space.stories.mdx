@@ -1,0 +1,12 @@
+import { Meta, Unstyled } from "@storybook/blocks";
+import { TokensGrid } from '../../components/TokensGrid'
+import { space } from '@ignite-ui/tokens'
+
+<Meta title="Tokens/Space" />
+
+# Space
+
+{/* O bloco Unstyled é um bloco especial que desativa o estilo padrão do Storybook em documentos MDX onde quer que seja adicionado. */}
+<Unstyled>
+  <TokensGrid tokens={space} hasRemValue />
+</Unstyled>
