@@ -18,12 +18,18 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
 
       # Instalação das dependências de produção no ambiente de CI (isto significa que não modifica o package-lock.json)
       - run: npm ci
 
       # Executa o script "build": "turbo run build", portanto, roda a build de todos os pacotes
       - run: npm run build
+        # Para usar o Turborepo Remote Caching, defina as seguintes variáveis de ambiente para o trabalho
+        env:
+          TURBO_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          TURBO_TEAM: ${{ vars.VERCEL_TEAM }}
 
       - name: Deploy storybook
         working-directory: ./packages/docs
