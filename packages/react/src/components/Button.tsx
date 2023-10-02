@@ -25,6 +25,10 @@ export const Button = styled('button', {
   },
 
   '&:disabled': {
+    boxShadow: '0 0 0 2px $colors$gray100', // boxShadow não entende que a variável $gray100 é uma cor, portanto, temos que especificar $colors$gray100
+  },
+
+  '&:focus': {
     cursor: 'not-allowed',
   },
 
