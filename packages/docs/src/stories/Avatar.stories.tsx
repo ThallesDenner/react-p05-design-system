@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Avatar, AvatarProps } from '@ignite-ui/react'
+import { Avatar, AvatarProps } from '@gears-ui/react'
 
 // type Story = StoryObj<typeof Avatar>
 type Story = StoryObj<AvatarProps>

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Box, Text, Checkbox, CheckboxProps } from '@ignite-ui/react'
+import { Box, Text, Checkbox, CheckboxProps } from '@gears-ui/react'
 
 // type Story = StoryObj<typeof Checkbox>
 type Story = StoryObj<CheckboxProps>

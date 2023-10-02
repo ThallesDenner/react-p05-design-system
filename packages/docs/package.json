@@ -1,5 +1,5 @@
 {
-  "name": "@ignite-ui/docs",
+  "name": "@gears-ui/docs",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,7 +13,7 @@
     "deploy-storybook": "storybook-to-ghpages"
   },
   "dependencies": {
-    "@ignite-ui/react": "*",
+    "@gears-ui/react": "*",
     "@storybook/addon-a11y": "^7.4.5",
     "phosphor-react": "^1.4.1",
     "polished": "^4.2.2",
@@ -21,9 +21,9 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@ignite-ui/eslint-config": "*",
-    "@ignite-ui/tokens": "*",
-    "@ignite-ui/ts-config": "*",
+    "@gears-ui/eslint-config": "*",
+    "@gears-ui/tokens": "*",
+    "@gears-ui/ts-config": "*",
     "@storybook/addon-essentials": "^7.4.5",
     "@storybook/addon-interactions": "^7.4.5",
     "@storybook/addon-links": "^7.4.5",

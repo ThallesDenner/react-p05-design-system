@@ -1,4 +1,4 @@
-// import { colors } from '@ignite-ui/tokens'
+// import { colors } from '@gears-ui/tokens'
 // import { getContrast } from 'polished'
 
 // export function ColorsGrid() {
@@ -43,7 +43,7 @@
 // */
 
 import { ColorPalette, ColorItem } from '@storybook/blocks'
-import { colors } from '@ignite-ui/tokens'
+import { colors } from '@gears-ui/tokens'
 
 export function ColorsGrid() {
   return (

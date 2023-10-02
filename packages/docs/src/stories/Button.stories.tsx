@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button, ButtonProps } from '@ignite-ui/react'
+import { Button, ButtonProps } from '@gears-ui/react'
 import { ArrowRight } from 'phosphor-react'
 
 // type Story = StoryObj<typeof Button>
@@ -92,6 +92,13 @@ export const WithIcon: Story = {
         <ArrowRight weight="bold" />
       </>
     ),
+  },
+  argTypes: {
+    children: {
+      control: {
+        type: null,
+      },
+    },
   },
 }
 

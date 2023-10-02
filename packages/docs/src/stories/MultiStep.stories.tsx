@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Box, MultiStep, MultiStepProps } from '@ignite-ui/react'
+import { Box, MultiStep, MultiStepProps } from '@gears-ui/react'
 
 // type Story = StoryObj<typeof MultiStep>
 type Story = StoryObj<MultiStepProps>

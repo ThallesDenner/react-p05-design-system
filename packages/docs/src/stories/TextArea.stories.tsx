@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Box, Text, TextArea, TextAreaProps } from '@ignite-ui/react'
+import { Box, Text, TextArea, TextAreaProps } from '@gears-ui/react'
 
 // type Story = StoryObj<typeof TextArea>
 type Story = StoryObj<TextAreaProps>
