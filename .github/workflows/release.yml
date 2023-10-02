@@ -1,0 +1,41 @@
+name: Release
+
+# O workflow será executado toda vez que houver um push na branch main
+on:
+  push:
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+# Trabalhos que serão executados
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+
+      # Instalação das dependências de produção no ambiente de CI (isto significa que não modifica o package-lock.json)
+      - run: npm ci
+
+      - name: Publish to NPM
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: npm run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Para automatizar o processo de publicação do pacote no NPM, definimos a seguinte variável de ambiente
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # As seguintes variáveis de ambiente são necessárias para usar o Turborepo Remote Caching
+          TURBO_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          TURBO_TEAM: ${{ vars.VERCEL_TEAM }}
