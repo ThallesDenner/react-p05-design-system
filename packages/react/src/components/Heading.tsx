@@ -3,12 +3,12 @@ import { styled } from '../styles'
 
 // Escolhemos Heading para ser uma tag <h2> por padrão, porque geralmente tempos apenas uma tag <h1> por página
 export const Heading = styled('h2', {
-  fontFamily: '$default',
+  fontFamily: '$primary',
   lineHeight: '$shorter',
   margin: 0,
   color: '$gray100',
 
-  // O componente pode receber qualquer uma das propriedades dentro de variants (isto nos permite criar variações para o componente)
+  // O componente pode receber qualquer uma das propriedades de variants (isto nos permite criar variações para o componente)
   variants: {
     size: {
       sm: { fontSize: '$xl' },
@@ -22,7 +22,7 @@ export const Heading = styled('h2', {
     },
   },
 
-  // Valor padrão das propriedades em variants (ao utilizar o componente, temos que passar o valor das propriedades que não tem valor padrão)
+  // Valor padrão das propriedades de variants (se usar o componente sem passar o valor das propriedades que não têm valor padrão, nenhum estilo associado a variante será aplicado)
   defaultVariants: {
     size: 'md',
   },

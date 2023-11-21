@@ -4,15 +4,15 @@
 
 // // ComponentProps extrai o tipo dos adereços de qualquer componente (assim, não precisamos criar a tipagem das props manualmente)
 // export interface TextInputProps extends ComponentProps<typeof Input> {
-//   prefix?: string
+//   leftContent?: string
 //   containerProps?: ComponentProps<typeof TextInputContainer>
 // }
 
 // export const TextInput = forwardRef<ElementRef<typeof Input>, TextInputProps>(
-//   ({ prefix, containerProps, ...props }, ref) => {
+//   ({ leftContent, containerProps, ...props }, ref) => {
 //     return (
 //       <TextInputContainer {...containerProps}>
-//         {!!prefix && <Prefix>{prefix}</Prefix>}
+//         {!!leftContent && <Prefix>{leftContent}</Prefix>}
 //         <Input ref={ref} {...props} />
 //       </TextInputContainer>
 //     )
@@ -34,22 +34,28 @@
  * propriedade ref, que já é aceita por padrão pelo componente Input. Daí, usamos isso para tipar o parâmetro ref de TextInput adequadamente.
  */
 
-import { ComponentProps, ElementRef, forwardRef } from 'react'
-import { Input, Prefix, TextInputContainer } from './styles'
+import { ComponentProps, ElementRef, ReactNode, forwardRef } from 'react'
+import { Input, Prefix, Sufix, TextInputContainer } from './styles'
 
 // ComponentProps extrai o tipo dos adereços de qualquer componente (assim, não precisamos criar a tipagem das props manualmente)
 export interface TextInputProps
   extends Omit<ComponentProps<typeof Input>, 'size'> {
-  prefix?: string
+  // ReactNode é um tipo que representa um elemento React, uma matriz de elementos React ou uma string, número ou boolean
+  leftContent?: ReactNode
+  rightContent?: ReactNode
   size?: ComponentProps<typeof TextInputContainer>['size']
 }
 
 export const TextInput = forwardRef<ElementRef<typeof Input>, TextInputProps>(
-  ({ prefix, size, ...props }, ref) => {
+  ({ leftContent, rightContent, size, ...props }, ref) => {
+    const hasPrefix = !!leftContent
+    const hasSufix = !!rightContent
+
     return (
       <TextInputContainer size={size}>
-        {!!prefix && <Prefix>{prefix}</Prefix>}
+        {hasPrefix && <Prefix>{leftContent}</Prefix>}
         <Input ref={ref} {...props} />
+        {hasSufix && <Sufix>{rightContent}</Sufix>}
       </TextInputContainer>
     )
   },

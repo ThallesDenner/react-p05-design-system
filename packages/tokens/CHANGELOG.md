@@ -1,5 +1,11 @@
 # @gears-ui/tokens
 
+## 2.1.1
+
+### Patch Changes
+
+- Correção de estilos e adicionado opção de colocar ícone no TextInput
+
 ## 2.1.0
 
 ### Minor Changes

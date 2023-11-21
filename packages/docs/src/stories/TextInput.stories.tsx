@@ -1,5 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Box, Text, TextInput, TextInputProps } from '@gears-ui/react'
+import {
+  At,
+  CheckCircle,
+  Info,
+  LockSimple,
+  LockSimpleOpen,
+  MagnifyingGlass,
+  PaperPlaneRight,
+  UserCircle,
+  WarningCircle,
+  XCircle,
+} from 'phosphor-react'
+import { ReactNode } from 'react'
 
 // type Story = StoryObj<typeof TextInput>
 type Story = StoryObj<TextInputProps>
@@ -36,8 +49,21 @@ export default {
   ],
 } as Meta<TextInputProps>
 
+const icons: Record<string, ReactNode> = {
+  user: <UserCircle size={16} weight="fill" />,
+  email: <At size={16} />,
+  search: <MagnifyingGlass size={16} />,
+  send: <PaperPlaneRight size={16} weight="fill" />,
+  locked: <LockSimple size={16} weight="fill" />,
+  unlocked: <LockSimpleOpen size={16} weight="fill" />,
+  error: <XCircle size={16} weight="fill" />,
+  info: <Info size={16} weight="fill" />,
+  success: <CheckCircle size={16} weight="fill" />,
+  warning: <WarningCircle size={16} weight="fill" />,
+}
+
 // Uma história captura o estado renderizado de um componente de UI
-// Veja como renderizar TextInput nos estados "primary", "disabled" e "withPrefix" e exportar as histórias Primary, Disabled e WithPrefix
+// Veja como renderizar TextInput nos estados "primary", "disabled", "withPrefix" e "withSufix" e exportar as histórias Primary, Disabled, WithPrefix e WithSufix
 
 export const Primary: Story = {
   args: {
@@ -53,9 +79,44 @@ export const Disabled: Story = {
 
 export const WithPrefix: Story = {
   args: {
-    prefix: 'cal.com/',
+    leftContent: 'cal.com/',
     placeholder: 'username',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'A propriedade `leftContent` pode receber um ícone ou um texto.',
+      },
+    },
+  },
+}
+
+export const WithSufix: Story = {
+  args: {
+    leftContent: 'cal.com/',
+    rightContent: 'locked',
+    placeholder: 'username',
+  },
+  argTypes: {
+    rightContent: {
+      options: Object.keys(icons),
+      control: {
+        type: 'select',
+      },
+      defaultValue: 'locked',
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'A propriedade `rightContent` pode receber um ícone ou um texto.',
+      },
+    },
+  },
+  render: (args) => (
+    <TextInput {...args} rightContent={icons[args.rightContent as string]} />
+  ),
 }
 
 /*

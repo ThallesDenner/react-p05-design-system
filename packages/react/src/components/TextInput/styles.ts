@@ -8,7 +8,7 @@ export const TextInputContainer = styled('div', {
   display: 'flex',
   alignItems: 'center',
 
-  // O componente pode receber qualquer uma das propriedades dentro de variants (isto nos permite criar variações para o componente)
+  // O componente pode receber qualquer uma das propriedades de variants (isto nos permite criar variações para o componente)
   variants: {
     size: {
       sm: {
@@ -22,6 +22,10 @@ export const TextInputContainer = styled('div', {
 
   '&:has(input:focus)': {
     borderColor: '$ignite300',
+
+    svg: {
+      color: '$ignite300',
+    },
   },
 
   '&:has(input:disabled)': {
@@ -29,24 +33,36 @@ export const TextInputContainer = styled('div', {
     cursor: 'not-allowed',
   },
 
-  // Valor padrão das propriedades em variants (ao utilizar o componente, temos que passar o valor das propriedades que não tem valor padrão)
+  // Valor padrão das propriedades de variants (se usar o componente sem passar o valor das propriedades que não têm valor padrão, nenhum estilo associado a variante será aplicado)
   defaultVariants: {
     size: 'md',
   },
 })
 
 export const Prefix = styled('span', {
-  fontFamily: '$default',
+  fontFamily: '$primary',
   fontSize: '$sm',
+  fontWeight: '$regular',
   color: '$gray400',
-  fontWeight: 'regular',
+  whiteSpace: 'nowrap',
+  lineHeight: 0,
+})
+
+export const Sufix = styled('span', {
+  fontFamily: '$primary',
+  fontSize: '$sm',
+  fontWeight: '$regular',
+  color: '$gray400',
+  marginLeft: 'auto',
+  whiteSpace: 'nowrap',
+  lineHeight: 0,
 })
 
 export const Input = styled('input', {
-  fontFamily: '$default',
+  fontFamily: '$primary',
   fontSize: '$sm',
   color: '$white',
-  fontWeight: 'regular',
+  fontWeight: '$regular',
   background: 'transparent',
   border: 0,
   width: '100%',

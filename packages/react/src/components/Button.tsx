@@ -6,7 +6,7 @@ export const Button = styled('button', {
   borderRadius: '$sm',
   fontSize: '$sm',
   fontWeight: '$medium',
-  fontFamily: '$default',
+  fontFamily: '$primary',
   textAlign: 'center',
   minWidth: 120,
   boxSizing: 'border-box',
@@ -25,14 +25,14 @@ export const Button = styled('button', {
   },
 
   '&:disabled': {
-    boxShadow: '0 0 0 2px $colors$gray100', // boxShadow não entende que a variável $gray100 é uma cor, portanto, temos que especificar $colors$gray100
-  },
-
-  '&:focus': {
     cursor: 'not-allowed',
   },
 
-  // O componente pode receber qualquer uma das propriedades dentro de variants (isto nos permite criar variações para o componente)
+  '&:focus': {
+    boxShadow: '0 0 0 2px $colors$gray100', // boxShadow não entende que a variável $gray100 é uma cor, portanto, temos que especificar $colors$gray100
+  },
+
+  // O componente pode receber qualquer uma das propriedades de variants (isto nos permite criar variações para o componente)
   variants: {
     variant: {
       primary: {
@@ -87,7 +87,7 @@ export const Button = styled('button', {
     },
   },
 
-  // Valor padrão das propriedades em variants (ao utilizar o componente, temos que passar o valor das propriedades que não tem valor padrão)
+  // Valor padrão das propriedades de variants (se usar o componente sem passar o valor das propriedades que não têm valor padrão, nenhum estilo associado a variante será aplicado)
   defaultVariants: {
     variant: 'primary',
     size: 'md',

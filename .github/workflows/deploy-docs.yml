@@ -39,7 +39,7 @@ jobs:
 
 # Observação: jekyll (usado por padrão pelo gh-pages) ignora arquivos começados por underline. Isto resulta no erro Failed to fetch dynamically imported module
 # quando tentamos acessar a página do Design System no GitHub Pages. Para resolver isso é só adicionar o arquivo .nojekyll na branch gh-pages ou adicionar o 
-# comando touch storybook-static/.nojekyll no run do Deploy storybook 
+# comando touch storybook-static/.nojekyll no run do Deploy storybook. 
 
 # Links
 # https://github.com/storybook-eol/storybook-deployer

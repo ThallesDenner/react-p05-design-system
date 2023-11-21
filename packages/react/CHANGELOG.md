@@ -1,5 +1,11 @@
 # @gears-ui/react
 
+## 2.0.2
+
+### Patch Changes
+
+- Correção de estilos e adicionado opção de colocar ícone no TextInput
+
 ## 2.0.1
 
 ### Patch Changes
