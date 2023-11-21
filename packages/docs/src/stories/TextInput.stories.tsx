@@ -1,5 +1,5 @@
+import { ReactNode } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
-import { Box, Text, TextInput, TextInputProps } from '@gears-ui/react'
 import {
   At,
   CheckCircle,
@@ -12,7 +12,7 @@ import {
   WarningCircle,
   XCircle,
 } from 'phosphor-react'
-import { ReactNode } from 'react'
+import { Box, Text, TextInput, TextInputProps } from '@gears-ui/react'
 
 // type Story = StoryObj<typeof TextInput>
 type Story = StoryObj<TextInputProps>

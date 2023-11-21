@@ -1,6 +1,6 @@
 {
   "name": "@gears-ui/react",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -19,6 +19,7 @@
     "@gears-ui/ts-config": "*",
     "@types/react": "^18.2.23",
     "@types/react-dom": "^18.2.8",
+    "@types/uuid": "^9.0.7",
     "react": "^18.2.0",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2"
@@ -26,7 +27,10 @@
   "dependencies": {
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-checkbox": "^1.0.4",
+    "@radix-ui/react-toast": "^1.1.5",
+    "@radix-ui/react-tooltip": "^1.0.7",
     "@stitches/react": "^1.2.8",
-    "phosphor-react": "^1.4.1"
+    "phosphor-react": "^1.4.1",
+    "uuid": "^9.0.1"
   }
 }

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button, ButtonProps } from '@gears-ui/react'
 import { ArrowRight } from 'phosphor-react'
+import { Button, ButtonProps } from '@gears-ui/react'
 
 // type Story = StoryObj<typeof Button>
 type Story = StoryObj<ButtonProps>

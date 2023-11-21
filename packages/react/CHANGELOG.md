@@ -1,5 +1,11 @@
 # @gears-ui/react
 
+## 2.1.0
+
+### Minor Changes
+
+- Adicionado os componentes Toast e Tooltip
+
 ## 2.0.2
 
 ### Patch Changes

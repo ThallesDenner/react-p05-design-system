@@ -1,5 +1,11 @@
 # @gears-ui/tokens
 
+## 2.2.0
+
+### Minor Changes
+
+- Adicionado os componentes Toast e Tooltip
+
 ## 2.1.1
 
 ### Patch Changes
